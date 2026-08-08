@@ -1,0 +1,23 @@
+package parte2.model;
+
+public class Vendedor extends Usuario {
+ private String codigo;
+
+ public Vendedor(String nombre, String email, String codigo) {
+    super(nombre, email);
+    this.codigo = codigo;
+ }
+
+ public String getCodigo() {
+    return codigo;
+ }
+
+ public void setCodigo(String codigo) {
+    this.codigo = codigo;
+ }
+ @Override
+ public String panelInicio() {
+    return "Panel de vendedor";
+}
+
+}
