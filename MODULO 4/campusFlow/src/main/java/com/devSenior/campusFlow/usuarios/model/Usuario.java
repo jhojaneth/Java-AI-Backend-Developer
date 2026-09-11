@@ -1,0 +1,99 @@
+package com.devSenior.campusFlow.usuarios.model;
+
+import jakarta.persistence.*;
+import java.util.List;
+import java.util.ArrayList;
+
+import com.devSenior.campusFlow.cursos.model.Curso;
+
+@Entity
+@Table(name = "usuarios")
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nombre;
+
+    @Column(unique = true)
+    private String email;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private RolUsuario rol;
+
+    @Embedded
+    private PreferenciasUsuario preferencias = new PreferenciasUsuario();
+
+    @OneToMany(mappedBy = "instructor")
+    private List<Curso> cursosDictados = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "estudiantes")
+    private List<Curso> cursosInscritos = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public RolUsuario getRol() {
+        return rol;
+    }
+
+    public void setRol(RolUsuario rol) {
+        this.rol = rol;
+    }
+
+    public PreferenciasUsuario getPreferencias() {
+        return preferencias;
+    }
+
+    public void setPreferencias(PreferenciasUsuario preferencias) {
+        this.preferencias = preferencias;
+    }
+
+    public List<Curso> getCursosDictados() {
+        return cursosDictados;
+    }
+
+    public void setCursosDictados(List<Curso> cursosDictados) {
+        this.cursosDictados = cursosDictados;
+    }
+
+    public List<Curso> getCursosInscritos() {
+        return cursosInscritos;
+    }
+
+    public void setCursosInscritos(List<Curso> cursosInscritos) {
+        this.cursosInscritos = cursosInscritos;
+    }
+}
