@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import com.devSenior.campusFlow.usuarios.security.JwtService;
+import com.devSenior.campusFlow.security.JwtService;
 import com.devSenior.campusFlow.usuarios.dto.AuthResponse;
 import com.devSenior.campusFlow.usuarios.dto.RegistroRequest;
 import com.devSenior.campusFlow.usuarios.dto.LoginRequest;

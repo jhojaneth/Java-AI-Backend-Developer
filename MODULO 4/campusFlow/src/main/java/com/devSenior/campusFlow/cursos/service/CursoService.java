@@ -1,10 +1,10 @@
 package com.devSenior.campusFlow.cursos.service;
 
+import com.devSenior.campusFlow.cursos.dto.CrearCursoRequest;
 import com.devSenior.campusFlow.cursos.repository.CursoRepository;
 import java.util.List;
 import com.devSenior.campusFlow.cursos.model.Curso;
 import com.devSenior.campusFlow.cursos.dto.CursoResponse;
-import com.devSenior.campusFlow.cursos.dto.CrearCursoRequest;
 import com.devSenior.campusFlow.cursos.mapper.CursoMapper;
 import com.devSenior.campusFlow.usuarios.repository.UsuarioRepository;
 import com.devSenior.campusFlow.usuarios.model.Usuario;

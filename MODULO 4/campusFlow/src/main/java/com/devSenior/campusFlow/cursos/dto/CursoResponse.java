@@ -1,5 +1,7 @@
 package com.devSenior.campusFlow.cursos.dto;
 
+
+
 public class CursoResponse {
 
     private Long id;
@@ -39,3 +41,4 @@ public class CursoResponse {
         this.cantidadEstudiantes = cantidadEstudiantes;
     }
 }
+

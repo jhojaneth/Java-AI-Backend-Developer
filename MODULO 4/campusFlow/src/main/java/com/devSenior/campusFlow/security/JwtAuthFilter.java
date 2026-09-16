@@ -1,4 +1,4 @@
-package com.devSenior.campusFlow.usuarios.security;
+package com.devSenior.campusFlow.security;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

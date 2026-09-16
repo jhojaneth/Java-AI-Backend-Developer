@@ -1,4 +1,4 @@
-package com.devSenior.campusFlow.usuarios.security;
+package com.devSenior.campusFlow.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
@@ -26,13 +26,15 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/cursos/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/cursos").hasAnyRole("INSTRUCTOR", "ADMINISTRADOR")
-                .requestMatchers("/api/usuarios/**").hasRole("ADMINISTRADOR")
-                .anyRequest().authenticated()
-            )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/pagos/webhook").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/cursos/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/cursos")
+                        .hasAnyRole("INSTRUCTOR", "ADMINISTRADOR")
+                        .requestMatchers("/api/usuarios/**").hasRole("ADMINISTRADOR")
+                        .anyRequest().authenticated()
+                )
             .exceptionHandling(ex -> ex
                 .authenticationEntryPoint((request, response, error) -> {
                     response.setStatus(401);
@@ -47,6 +49,7 @@ public class SecurityConfig {
                     response.getWriter().write("{\"error\":\"Permisos insuficientes\"}");
                 })
             )
+
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 

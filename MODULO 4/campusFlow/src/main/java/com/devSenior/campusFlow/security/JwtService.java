@@ -1,4 +1,4 @@
-package com.devSenior.campusFlow.usuarios.security;
+package com.devSenior.campusFlow.security;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;

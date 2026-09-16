@@ -48,4 +48,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(Map.of("error", "Ocurrió un error interno. Intenta de nuevo."));
     }
+    @ExceptionHandler(PlanNoDisponibleException.class)
+    public ResponseEntity<Map<String, String>> manejarPlanNoDisponible(
+            PlanNoDisponibleException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Map.of("error", ex.getMessage()));
+    }
 }

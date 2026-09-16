@@ -1,5 +1,6 @@
 package com.devSenior.campusFlow.cursos.controller;
 
+import com.devSenior.campusFlow.cursos.dto.CrearCursoRequest;
 import com.devSenior.campusFlow.cursos.service.CursoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
@@ -11,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import jakarta.validation.Valid;
 import com.devSenior.campusFlow.cursos.dto.CursoResponse;
-import com.devSenior.campusFlow.cursos.dto.CrearCursoRequest;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
